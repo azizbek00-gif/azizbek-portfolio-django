@@ -1,0 +1,49 @@
+# Virtual environment
+venv/
+env/
+ENV/
+venv.bak/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Database
+db.sqlite3
+*.db
+
+# Media files
+media/
+/media/
+
+# Static files
+staticfiles/
+/staticfiles
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Django
+*.log
+local_settings.py
+*.pot
+*.pyc
+
+# Uploads
+uploads/
+/media/
+
+# Git
+*.orig
