@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azizbek Omonov | Portfolio</title>
+    {% load static %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f0f0f;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 30px 0;
+            background-color: #0f0f0f;
+            border-bottom: 1px solid #222;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: #ffd700;
+        }
+        
+        .contact-link {
+            background-color: #ffd700;
+            color: #000000 !important;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+        
+        .contact-link:hover {
+            background-color: #ffed4a;
+            color: #000000 !important;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background-color: #0f0f0f;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .hero-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #ffd700;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .hero-name {
+            font-size: 70px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+        
+        .hero-name span {
+            color: #ffd700;
+        }
+        
+        .hero-desc {
+            font-size: 18px;
+            color: #aaa;
+            margin-bottom: 35px;
+            max-width: 500px;
+        }
+        
+        .hero-image {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: 30px;
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: #0a0a0a;
+        }
+        
+        .section-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 50px;
+        }
+        
+        .section-title span {
+            color: #ffd700;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .about-card {
+            background-color: #1a1a1a;
+            border-radius: 20px;
+            padding: 40px;
+        }
+        
+        .about-label {
+            color: #ffd700;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .about-value {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: 80px 0;
+            background-color: #0f0f0f;
+        }
+        
+        .projects-subtitle {
+            color: #aaa;
+            font-size: 18px;
+            margin-bottom: 50px;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: #1a1a1a;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background-color: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffd700;
+            font-size: 48px;
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+        
+        .project-desc {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+        
+        .tech-tag {
+            background-color: #2a2a2a;
+            color: #ffd700;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .project-link {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .project-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: #0a0a0a;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .contact-info {
+            background-color: #1a1a1a;
+            border-radius: 20px;
+            padding: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #2a2a2a;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffd700;
+            font-size: 20px;
+        }
+        
+        .contact-label {
+            color: #ffd700;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .contact-value {
+            font-size: 16px;
+            color: #ffffff;
+        }
+        
+        .contact-value a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        
+        .contact-value a:hover {
+            color: #ffd700;
+        }
+        
+        .contact-form {
+            background-color: #1a1a1a;
+            border-radius: 20px;
+            padding: 40px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #ffd700;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            background-color: #2a2a2a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #ffd700;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #ffd700;
+            color: #000000;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background-color: #ffed4a;
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 30px 0;
+            background-color: #0f0f0f;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #222;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-grid,
+            .about-grid,
+            .projects-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-name {
+                font-size: 50px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-name {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">AZIZBEK</a>
+                <nav class="nav-menu">
+                    <a href="#home">Asosiy</a>
+                    <a href="#about">Men haqimda</a>
+                    <a href="#projects">Loyihalar</a>
+                    <a href="#contact">Aloqa</a>
+                    <a href="#contact" class="contact-link">Bog'lanish</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <div class="hero-title">AZIZBEK</div>
+                    <h1 class="hero-name">FULL-STACK<br><span>DASTURCHI</span></h1>
+                    <p class="hero-desc" id="bio">Men Robbit Akademiyasi o'quvchisiman. Zamonaviy va foydali veb-ilovalarni yaratishga qiziqaman.</p>
+                    <a href="#projects" class="contact-link" style="display: inline-block;">Loyiha boshlash ></a>
+                </div>
+                <div>
+                    <img src="" alt="Azizbek Omonov" class="hero-image" id="profileImage">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Men <span>haqimda</span></h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-label">Ism</div>
+                    <div class="about-value" id="fullName">Azizbek Omonov</div>
+                    
+                    <div class="about-label">Tug'ilgan sana</div>
+                    <div class="about-value" id="birthDate">2009-06-29</div>
+                    
+                    <div class="about-label">Manzil</div>
+                    <div class="about-value" id="address">Farg'ona shahar</div>
+                    
+                    <div class="about-label">O'qish</div>
+                    <div class="about-value" id="education">Robbit Akademiyasi o'quvchisi</div>
+                </div>
+                <div>
+                    <!-- Bo'sh joy yoki qo'shimcha ma'lumot -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Avvalgi <span>loyihalarim</span></h2>
+            <p class="projects-subtitle">Mening eng yaxshi ishlarim va dasturiy yechimlarim</p>
+            
+            <div class="projects-grid" id="projectsContainer">
+                <!-- Loyihalar dynamic yuklanadi -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Keling, birga <span>ishlaymiz!</span></h2>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <div class="contact-label">EMAIL</div>
+                            <div class="contact-value" id="email">azizbek2004uzbek@gmail.com</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <div class="contact-label">TELEFON</div>
+                            <div class="contact-value" id="phone">+998 33 996 36 30</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div>
+                            <div class="contact-label">GITHUB</div>
+                            <div class="contact-value">
+                                <a href="https://github.com/azizbek00-gif" target="_blank" id="github">azizbek00-gif</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label>ISMINGIZ</label>
+                            <input type="text" class="form-control" name="name" placeholder="Azizbek Omonov" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>EMAIL</label>
+                            <input type="email" class="form-control" name="email" placeholder="example@mail.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>XABAR</label>
+                            <textarea class="form-control" name="message" placeholder="Loyihangiz haqida yozing..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Yuborish</button>
+                    </form>
+                    <div id="status" style="margin-top: 20px;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Azizbek Omonov. Barcha huquqlar himoyalangan.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
