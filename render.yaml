@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: azizbek-portfolio
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic --noinput
+    startCommand: gunicorn portfolio.wsgi:application --bind 0.0.0.0:$PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: DATABASE_URL
+        fromDatabase:
+          name: portfolio_db
+          property: connectionString
